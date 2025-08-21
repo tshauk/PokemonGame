@@ -318,6 +318,9 @@ class PokemonGameGUI:
     def show_team(self):
         self.clear_main()
         tk.Label(self.main_frame, text=f"{self.player.name}'s Team", font=("Arial", 14)).pack(pady=10)
+        for p in self.player.party:
+            text = f"{'Shiny ' if p.shiny else ''}{p.name} Lv{p.level}"
+            tk.Label(self.main_frame, text=text, bg="lightgray").pack()
 
     def update_team_display(self):
         for widget in self.left_frame.winfo_children():
